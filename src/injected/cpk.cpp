@@ -176,7 +176,7 @@ bool CpkHandler::OpenTxtFile(
 
         SmartPtr<Dumpable> dmp;
         TxtSerializable* txt;
-        if (memcmp(hdr_buf, "CL3L", 4) == 0)
+        if (memcmp(hdr_buf, "CL3B", 4) == 0)
         {
             dmp = MakeSmart<Cl3>(src);
             txt = &static_cast<Cl3*>(dmp.get())->GetStcm();

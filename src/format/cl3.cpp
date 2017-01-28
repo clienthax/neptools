@@ -10,7 +10,7 @@ namespace Neptools
 void Cl3::Header::Validate(FilePosition file_size) const
 {
 #define VALIDATE(x) NEPTOOLS_VALIDATE_FIELD("Cl3::Header", x)
-    VALIDATE(memcmp(magic, "CL3L", 4) == 0);
+    VALIDATE(memcmp(magic, "CL3B", 4) == 0);
     VALIDATE(field_04 == 0);
     VALIDATE(field_08 == 3);
     VALIDATE(sections_offset + sections_count * sizeof(Section) <= file_size);
@@ -228,7 +228,7 @@ void Cl3::Dump_(Sink& sink) const
     auto link_offset = data_offset + data_size;
 
     Header hdr;
-    memcpy(hdr.magic, "CL3L", 4);
+    memcpy(hdr.magic, "CL3B", 4);
     hdr.field_04 = 0;
     hdr.field_08 = 3;
     hdr.sections_count = 2;

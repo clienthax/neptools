@@ -22,11 +22,11 @@ public:
     struct Header
     {
         char magic[4];
-        boost::endian::little_uint32_t field_04;
-        boost::endian::little_uint32_t field_08;
-        boost::endian::little_uint32_t sections_count;
-        boost::endian::little_uint32_t sections_offset;
-        boost::endian::little_uint32_t field_14;
+        boost::endian::big_uint32_t field_04;
+        boost::endian::big_uint32_t field_08;
+        boost::endian::big_uint32_t sections_count;
+        boost::endian::big_uint32_t sections_offset;
+        boost::endian::big_uint32_t field_14;
 
         void Validate(FilePosition file_size) const;
     };
@@ -35,18 +35,18 @@ public:
     struct Section
     {
         FixedString<0x20> name;
-        boost::endian::little_uint32_t count;
-        boost::endian::little_uint32_t data_size;
-        boost::endian::little_uint32_t data_offset;
-        boost::endian::little_uint32_t field_2c;
-        boost::endian::little_uint32_t field_30;
-        boost::endian::little_uint32_t field_34;
-        boost::endian::little_uint32_t field_38;
-        boost::endian::little_uint32_t field_3c;
-        boost::endian::little_uint32_t field_40;
-        boost::endian::little_uint32_t field_44;
-        boost::endian::little_uint32_t field_48;
-        boost::endian::little_uint32_t field_4c;
+        boost::endian::big_uint32_t count;
+        boost::endian::big_uint32_t data_size;
+        boost::endian::big_uint32_t data_offset;
+        boost::endian::big_uint32_t field_2c;
+        boost::endian::big_uint32_t field_30;
+        boost::endian::big_uint32_t field_34;
+        boost::endian::big_uint32_t field_38;
+        boost::endian::big_uint32_t field_3c;
+        boost::endian::big_uint32_t field_40;
+        boost::endian::big_uint32_t field_44;
+        boost::endian::big_uint32_t field_48;
+        boost::endian::big_uint32_t field_4c;
 
         void Validate(FilePosition file_size) const;
     };
@@ -55,18 +55,18 @@ public:
     struct FileEntry
     {
         FixedString<0x200> name;
-        boost::endian::little_uint32_t field_200;
-        boost::endian::little_uint32_t data_offset;
-        boost::endian::little_uint32_t data_size;
-        boost::endian::little_uint32_t link_start;
-        boost::endian::little_uint32_t link_count;
-        boost::endian::little_uint32_t field_214;
-        boost::endian::little_uint32_t field_218;
-        boost::endian::little_uint32_t field_21c;
-        boost::endian::little_uint32_t field_220;
-        boost::endian::little_uint32_t field_224;
-        boost::endian::little_uint32_t field_228;
-        boost::endian::little_uint32_t field_22c;
+        boost::endian::big_uint32_t field_200;
+        boost::endian::big_uint32_t data_offset;
+        boost::endian::big_uint32_t data_size;
+        boost::endian::big_uint32_t link_start;
+        boost::endian::big_uint32_t link_count;
+        boost::endian::big_uint32_t field_214;
+        boost::endian::big_uint32_t field_218;
+        boost::endian::big_uint32_t field_21c;
+        boost::endian::big_uint32_t field_220;
+        boost::endian::big_uint32_t field_224;
+        boost::endian::big_uint32_t field_228;
+        boost::endian::big_uint32_t field_22c;
 
         void Validate(uint32_t block_size) const;
     };
@@ -74,14 +74,14 @@ public:
 
     struct LinkEntry
     {
-        boost::endian::little_uint32_t field_00;
-        boost::endian::little_uint32_t linked_file_id;
-        boost::endian::little_uint32_t link_id;
-        boost::endian::little_uint32_t field_0c;
-        boost::endian::little_uint32_t field_10;
-        boost::endian::little_uint32_t field_14;
-        boost::endian::little_uint32_t field_18;
-        boost::endian::little_uint32_t field_1c;
+        boost::endian::big_uint32_t field_00;
+        boost::endian::big_uint32_t linked_file_id;
+        boost::endian::big_uint32_t link_id;
+        boost::endian::big_uint32_t field_0c;
+        boost::endian::big_uint32_t field_10;
+        boost::endian::big_uint32_t field_14;
+        boost::endian::big_uint32_t field_18;
+        boost::endian::big_uint32_t field_1c;
 
         void Validate(uint32_t i, uint32_t file_count) const;
     };

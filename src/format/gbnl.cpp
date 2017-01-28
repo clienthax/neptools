@@ -530,7 +530,8 @@ uint32_t Gbnl::GetId(const Gbnl::Struct& m, size_t i, size_t j, size_t& k) const
 
 void Gbnl::WriteTxt_(std::ostream& os) const
 {
-    auto sep = field_30 == 8 ? SEP_DASH_UTF8 : SEP_DASH;
+    //auto sep = field_30 == 8 ? SEP_DASH_UTF8 : SEP_DASH;
+	auto sep = SEP_DASH_UTF8;
     size_t j = 0;
     for (const auto& m : messages)
     {
